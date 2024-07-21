@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+          
+
+  <style>
+html, body {
+  margin: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-y: auto; /* Allow vertical scroll if needed */
+  height: 100%; /* Ensure full height to manage overflow */
+}
+
+body {
+  font-family: Arial, sans-serif; /* Ensure a consistent font family */
+}
+
+.animate-loop-scroll {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100vw; /* Full viewport width */
+  padding-bottom: 90px; /* Add padding to the bottom */
+}
+
+.scrolling-container {
+  display: flex;
+  width: 200%; /* Double the width of the viewport */
+  animation: scroll 20s linear infinite;
+}
+
+.scrolling-container img {
+  width: 128px; /* Set width */
+  height: 128px; /* Set height */
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+  </style>
+</head>
+<body class="bg-gray-200">
+          
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center py-4 px-2">
+          <img src="Logo.webp" alt="Logo" class="h-8 w-8 mr-2">
+          <span class="font-semibold text-gray-500 text-lg">example.com</span>
+        </div>
+        <!-- Primary Navbar items -->
+        <div class="hidden md:flex justify-center flex-1 items-center space-x-4">
+          <a href="index.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-home mr-1"></i> Home
+          </a>
+          <a href="about.html" class="py-4 px-2 text-gray-500 border-b-4 border-green-500 font-semibold">
+            <i class="fas fa-concierge-bell mr-1"></i> About
+          </a>
+          <a href="blog.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-info-circle mr-1"></i> Blog
+          </a>
+          <a href="#" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-shop mr-1"></i> Shop 
+          </a>
+          <a href="#" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-gear mr-1"></i> Services
+          </a>
+          <a href="contact.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-envelope mr-1"></i> Contact
+          </a>
+        </div>
+        <!-- Search bar -->
+        <div class="hidden md:flex items-center space-x-3">
+          <input type="text" placeholder="Search..." class="px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-700 transition duration-300">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button class="outline-none mobile-menu-button">
+            <svg class="w-6 h-6 text-gray-500 hover:text-green-500" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div class="hidden mobile-menu">
+      <ul>
+        <li><a href="index.html" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+          <i class="fas fa-home mr-1"></i> Home
+        </a></li>
+        <li class="active"><a href="#" class="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">
+            <i class="fas fa-concierge-bell mr-1"></i> About
+        </a></li>
+        <li><a href="blog.html" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+          <i class="fas fa-info-circle mr-1"></i> Blog
+        </a></li>
+        <li><a href="#" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+          <i class="fas fa-shop mr-1"></i> Shop
+        </a></li>
+
+        <li><a href="#" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+          <i class="fas fa-gear mr-1"></i> Services
+        </a></li>
+        <li><a href="contact.html" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+          <i class="fas fa-envelope mr-1"></i> Contact
+        </a></li>
+        <li class="px-2 py-4">
+          <input type="text" placeholder="Search..." class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button class="w-full px-4 py-2 mt-2 bg-green-500 text-white rounded-md hover:bg-green-700 transition duration-300">
+            <i class="fas fa-search"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <script>
+    const btn = document.querySelector("button.mobile-menu-button");
+    const menu = document.querySelector(".mobile-menu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
+
+  <!-- About Section -->
+  <section class="py-20 bg-gray-200">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <!-- GitHub Icon -->
+        <a href="https://github.com/your_username" target="_blank" class="inline-block bg-gray-200 p-2 rounded-full hover:shadow-md transition duration-300">
+          <i class="fab fa-github text-gray-600 hover:text-gray-800 text-5xl"></i>
+        </a>
+        <!-- LinkedIn Icon -->
+        <a href="https://www.linkedin.com/in/your_username" target="_blank" class="inline-block bg-gray-200 p-2 rounded-full hover:shadow-md transition duration-300">
+          <i class="fab fa-linkedin-in text-gray-600 hover:text-gray-800 text-5xl"></i>
+        </a>
+              <a href="https://github.com/your_username" target="_blank" class="inline-block bg-gray-200 p-2 rounded-full hover:shadow-md transition duration-300">
+          <i class="fab fa-solid fa-cloud text-gray-600 hover:text-gray-800 text-5xl"></i>
+        </a>
+              <a href="https://github.com/your_username" target="_blank" class="inline-block bg-gray-200 p-2 rounded-full hover:shadow-md transition duration-300">
+          <i class="fab fa-solid fa-cube text-gray-600 hover:text-gray-800 text-5xl"></i>
+        </a>
+        <h2 class="text-4xl font-semibold text-gray-800">About Me</h2>
+        <p class="text-gray-600 mt-4">As an Ethical Hacker and aspiring Cybersecurity Specialist, I bring a robust foundation in computer science and a fervent commitment to safeguarding digital assets. Currently pursuing a Bachelor's degree in Cybersecurity at Western Governors University, I am dedicated to mastering a range of programming languages essential for developing resilient security solutions and automating critical processes. My proficiency includes Python, Bash, PowerShell, Ruby, SQL, JavaScript, and Lua.
+
+          My professional journey is underscored by a proactive pursuit of industry certifications. I aim to achieve CompTIA ITF+, CompTIA A+, CompTIA Network+, CompTIA Security+, CompTIA PenTest+, CompTIA Linux+, Certified Ethical Hacker (CEH), Certified ChatGPT Expert (Blockchain Council), and Certified Prompt Engineer (Blockchain Council). These certifications reflect my dedication to staying abreast of cybersecurity advancements and best practices.
+          
+          Beyond technical pursuits, I maintain a passion for gaming, with interests spanning Runescape, World of Warcraft, and other engaging titles. I am eager to leverage my growing expertise in cybersecurity to tackle real-world challenges, ensuring organizations fortify their critical assets against evolving threats.</p>
+      </div>
+
+      <div class="animate-loop-scroll">
+        <div class="scrolling-container">
+          <!-- Original set of images -->
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg" alt="Docker Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" alt="Azuresqldatabase Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="Bash Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="TailwindCSS Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" alt="Rust Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" alt="Python Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg" alt="Powershell Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pfsense/pfsense-original-wordmark.svg" alt="PFSense Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" alt="MySQL Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg" alt="MongoDB Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" alt="MATLAB Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg" alt="MaterialUI Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" alt="Java Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" alt="HTML5 Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" alt="Git Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original-wordmark.svg" alt="GitLab Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg" alt="Flask Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/electron/electron-original.svg" alt="Electron Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dreamweaver/dreamweaver-original.svg" alt="Dreamweaver Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/discordjs/discordjs-original-wordmark.svg" alt="DiscordJS Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="CSharp Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++ Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" alt="CSS3 Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/aftereffects/aftereffects-original.svg" alt="AfterEffects Logo" />
+    
+          <!-- Duplicate set for continuous scroll -->
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg" alt="Docker Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" alt="Azuresqldatabase Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="Bash Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="TailwindCSS Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" alt="Rust Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" alt="Python Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg" alt="Powershell Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pfsense/pfsense-original-wordmark.svg" alt="PFSense Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" alt="MySQL Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg" alt="MongoDB Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" alt="MATLAB Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg" alt="MaterialUI Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" alt="Java Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" alt="HTML5 Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" alt="Git Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original-wordmark.svg" alt="GitLab Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg" alt="Flask Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/electron/electron-original.svg" alt="Electron Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dreamweaver/dreamweaver-original.svg" alt="Dreamweaver Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/discordjs/discordjs-original-wordmark.svg" alt="DiscordJS Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="CSharp Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++ Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" alt="CSS3 Logo" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/aftereffects/aftereffects-original.svg" alt="AfterEffects Logo" />
+        </div>
+      </div>
+      
+         
+      
+            
+      
+
+
+
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="col-span-1">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-flask"></i> Labs</h3>
+          <p class="text-gray-600 mb-4">
+            <strong>EDR Bypasses</strong>
+          </p>
+          <p class="text-gray-600 mb-4">
+            <strong>AI Automation</strong>
+          </p>
+          <p class="text-gray-600 mb-4">
+            <strong>Nmap Advanced Pen testing</strong>
+          </p>
+          <p class="text-gray-600 mb-4">
+            <strong>Web Shell Exploitation</strong>
+          </p>
+          <p class="text-gray-600 mb-4">
+            <strong>Cobalt Strike Adversary Simulation</strong>
+          </p>
+
+        </div>
+        <div class="col-span-1">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-project-diagram"></i> Projects</h3>
+          <p class="text-gray-600 mb-4">
+            <strong>Pegasus Rat / Botnet</strong>
+            
+            
+          </p>
+          <p class="text-gray-600 mb-4">
+            <strong>Pegasus Rat Plugins</strong>
+            
+            
+          </p>
+
+          <p class="text-gray-600 mb-4">
+            <strong>Python Infostealer</strong>
+            
+            
+          </p>
+
+          <p class="text-gray-600 mb-4">
+            <strong>Go Ransomware </strong>
+            
+            
+          </p>
+
+          <p class="text-gray-600 mb-4">
+            <strong>C/C++ Assembly Crypter</strong>
+            
+            
+          </p>
+        </div>
+        <div class="col-span-1">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-smile"></i> Fun Stuff</h3>
+          <p class="text-gray-600 mb-4">
+            <strong>Voice Changer</strong>
+          </p>
+          <p class="text-gray-600 mb-4">
+            <strong>Prank Dashboard</strong>
+          </p>
+          <p class="text-gray-600 mb-4">
+            <strong>VST Plugin</strong>
+          </p>
+          <p class="text-gray-600 mb-4">
+            <strong>Chrome Theme</strong>
+          </p>
+          <p class="text-gray-600 mb-4">
+            <strong>Icon Pack</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-8 mt-8">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Company Information -->
+        <div class="flex flex-col items-center md:items-start">
+          <img src="Logo.webp" alt="Logo" class="h-8 w-8 mb-2">
+          <span class="font-semibold text-lg">example.com</span>
+          <p class="mt-2 text-center md:text-left">We are a powerful hacker group.</p>
+        </div>
+        <!-- Navigation Links -->
+        <div class="flex flex-col items-center">
+          <a href="index.html" class="text-gray-300 hover:text-white transition duration-300">Home</a>
+          <a href="about.html" class="text-gray-300 hover:text-white transition duration-300">Site Map</a>
+          <a href="blog.html" class="text-gray-300 hover:text-white transition duration-300">Privacy Policy</a>
+          <a href="#" class="text-gray-300 hover:text-white transition duration-300">Terms of Service</a>
+          <a href="#" class="text-gray-300 hover:text-white transition duration-300">Subscribe</a>
+          <a href="contact.html" class="text-gray-300 hover:text-white transition duration-300">Contact</a>
+        </div>
+        <!-- Subscription Section -->
+        <div class="flex flex-col items-center">
+          <h3 class="font-semibold mb-2">Subscribe to Our Newsletter</h3>
+          <form class="flex">
+            <input type="email" placeholder="Your Email" class="px-3 py-2 border border-gray-600 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded-r-md hover:bg-green-700 transition duration-300">Subscribe</button>
+          </form>
+          <div class="flex space-x-4 mt-4">
+            <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+              <i class="fa-solid fa-at"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+              <i class="fa fa-globe"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+              <i class="fab fa-discord"></i>
+            </a>
+          </div>
+          <p class="mt-4 text-center">© 2024 example LLC. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

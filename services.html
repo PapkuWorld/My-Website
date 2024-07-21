@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>example.com</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/MotionPathPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EaselPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/PixiPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EasePack.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+  <style>
+    .menu-open {
+      transform: rotate(90deg);
+      transition: transform 0.3s ease;
+    }
+    .dropdown {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .dropdown-open {
+      max-height: 100px; /* Adjust based on your menu items */
+    }
+    /* Style for scroll-to-top button */
+    #scrollToTop {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300">
+
+  <!-- Navbar -->
+  <nav class="bg-white dark:bg-gray-800 shadow-lg">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center py-4 px-2">
+          <img src="Logo.webp" alt="Logo" class="h-8 w-8 mr-2">
+          <span class="font-semibold text-gray-500 dark:text-gray-300 text-lg">example.com</span>
+        </div>
+        <!-- Primary Navbar items -->
+        <div class="hidden md:flex justify-center flex-1 items-center space-x-4">
+          <a href="index.html" class="py-4 px-2 text-gray-500 dark:text-gray-300 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-home mr-1"></i> Home
+          </a>
+          <a href="about.html" class="py-4 px-2 text-gray-500 dark:text-gray-300 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-concierge-bell mr-1"></i> About
+          </a>
+          <a href="blog.html" class="py-4 px-2 text-gray-500 dark:text-gray-300 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-info-circle mr-1"></i> Blog
+          </a>
+          <a href="#" class="py-4 px-2 text-gray-500 dark:text-gray-300 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-shop mr-1"></i> Shop 
+          </a>
+          <a href="index.html" class="py-4 px-2 text-gray-500 dark:text-gray-300 border-b-4 border-green-500 font-semibold">
+            <i class="fas fa-gear mr-1"></i> Services
+          </a>
+          <a href="contact.html" class="py-4 px-2 text-gray-500 dark:text-gray-300 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-envelope mr-1"></i> Contact
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-3">
+          <input type="text" placeholder="Search..." class="px-4 py-2 border rounded-md text-gray-700 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-700 transition duration-300">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <!-- Social Media Icons -->
+        <div class="hidden md:flex space-x-3 ml-3 items-center">
+          <a href="https://google.com"><img src="icons8-bell.gif" alt=""></a>
+        </div>
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button class="outline-none mobile-menu-button">
+            <svg class="w-6 h-6 text-gray-500 dark:text-gray-300 hover:text-green-500 transition duration-300" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div class="hidden mobile-menu">
+      <ul class="bg-white dark:bg-gray-800">
+        <li>
+          <a href="#" class="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">
+            <i class="fas fa-home mr-1"></i> Home
+          </a>
+        </li>
+        <li>
+          <div class="relative"></div>
+        </li>
+        <li>
+          <a href="blog.html" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+            <i class="fas fa-concierge-bell mr-1"></i> About
+          </a>
+        </li>
+        <li>
+          <a href="blog.html" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+            <i class="fas fa-info-circle mr-1"></i> Blog
+          </a>
+        </li>
+        <li>
+          <a href="#" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+            <i class="fas fa-shop mr-1"></i> Shop
+          </a>
+        </li>
+        <li>
+          <a href="#" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+            <i class="fas fa-gear mr-1"></i> Services
+          </a>
+        </li>
+        <li>
+          <a href="contact.html" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+            <i class="fas fa-envelope mr-1"></i> Contact
+          </a>
+        </li>
+        <li class="px-2 py-4">
+          <input type="text" placeholder="Search..." class="w-full px-2 py-2 border rounded-md text-gray-700 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button class="w-full px-4 py-2 mt-2 bg-green-500 text-white rounded-md hover:bg-green-700 transition duration-300">
+            <i class="fas fa-search"></i>
+          </button>
+        </li>
+        <!-- Social Media Icons -->
+        <li class="flex justify-center space-x-3 py-4">
+          <a href="#" class="text-gray-500 dark:text-gray-300 hover:text-green-500 transition duration-300">
+            <i class="fab fa-facebook fa-lg"></i>
+          </a>
+          <a href="#" class="text-gray-500 dark:text-gray-300 hover:text-green-500 transition duration-300">
+            <i class="fab fa-twitter fa-lg"></i>
+          </a>
+          <a href="#" class="text-gray-500 dark:text-gray-300 hover:text-green-500 transition duration-300">
+            <i class="fab fa-instagram fa-lg"></i>
+          </a>
+          <a href="#" class="text-gray-500 dark:text-gray-300 hover:text-green-500 transition duration-300">
+            <i class="fab fa-linkedin fa-lg"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page content -->
+  <div class="flex flex-col md:flex-row">
+    <!-- Side banner ads for desktop view -->
+    <div class="hidden md:block md:w-1/4 p-4 bg-white shadow-md m-4 dark:bg-gray-800">
+      <img src="banner400.jpg" alt="Ad Banner 1" class="mb-4 w-full">
+      <img src="wowclassic.jpg" alt="Ad Banner 2" class="mb-4 w-full">
+    </div>
+
+    <!-- Main content -->
+    <div class="w-full md:w-1/2 p-4 bg-white shadow-md m-4 dark:bg-gray-800">
+      <!-- Services Section -->
+      <section id="services" class="py-8">
+        <div class="container mx-auto">
+          <h2 class="text-2xl font-semibold mb-6 text-gray-900 dark:text-gray-100">My Services</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="service-item p-4 bg-gray-100 dark:bg-gray-900 rounded-md shadow-md">
+              <h3 class="text-xl font-semibold mb-2 text-green-500">Software Development</h3>
+              <p class="text-gray-700 dark:text-gray-300">I build whatever comes to my mind and you can give me ideas</p>
+            </div>
+            <div class="service-item p-4 bg-gray-100 dark:bg-gray-900 rounded-md shadow-md">
+              <h3 class="text-xl font-semibold mb-2 text-green-500">Pen Testing</h3>
+              <p class="text-gray-700 dark:text-gray-300">I will try to hack your website and network and tell you how to fix those</p>
+            </div>
+            <div class="service-item p-4 bg-gray-100 dark:bg-gray-900 rounded-md shadow-md">
+              <h3 class="text-xl font-semibold mb-2 text-green-500">Consultancy</h3>
+              <p class="text-gray-700 dark:text-gray-300">I can tell you how to advance and secure your business</p>
+            </div>
+            <div class="service-item p-4 bg-gray-100 dark:bg-gray-900 rounded-md shadow-md">
+              <h3 class="text-xl font-semibold mb-2 text-green-500">Blackhat</h3>
+              <p class="text-gray-700 dark:text-gray-300">I wont hack anything for you but i will tell you how to do it</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Side banner ads for desktop view -->
+    <div class="hidden md:block md:w-1/4 p-4 bg-white shadow-md m-4 dark:bg-gray-800">
+      <img src="banner400.jpg" alt="Ad Banner 3" class="mb-4 w-full">
+      <img src="wowclassic.jpg" alt="Ad Banner 4" class="mb-4 w-full">
+    </div>
+  </div>
+
+  <!-- Bottom banner ads for mobile view -->
+  <div class="md:hidden bg-white shadow-md p-4">
+    <img src="banner400.jpg" alt="Ad Banner Top" class="mb-4 w-full">
+  </div>
+
+ <!-- Footer -->
+ <footer class="bg-gray-900 text-gray-300 py-8 mt-8 dark:bg-gray-800 dark:text-gray-300">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- Company Information -->
+      <div class="flex flex-col items-center md:items-start">
+        <img src="Logo.webp" alt="Logo" class="h-8 w-8 mb-2">
+        <span class="font-semibold text-lg">example.com</span>
+        <p class="mt-2 text-center md:text-left">We are a powerful hacker group.</p>
+      </div>
+      <!-- Navigation Links -->
+      <div class="flex flex-col items-center">
+        <a href="index.html" class="text-gray-300 hover:text-white transition duration-300">Home</a>
+        <a href="about.html" class="text-gray-300 hover:text-white transition duration-300">Site Map</a>
+        <a href="blog.html" class="text-gray-300 hover:text-white transition duration-300">Privacy Policy</a>
+        <a href="#" class="text-gray-300 hover:text-white transition duration-300">Terms of Service</a>
+        <a href="#" class="text-gray-300 hover:text-white transition duration-300">Subscribe</a>
+        <a href="contact.html" class="text-gray-300 hover:text-white transition duration-300">Contact</a>
+      </div>
+      <!-- Subscription Section -->
+      <div class="flex flex-col items-center">
+        <h3 class="font-semibold mb-2">Subscribe to Our Newsletter</h3>
+        <form class="flex">
+          <input type="email" placeholder="Your Email" class="px-3 py-2 border border-gray-600 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+          <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded-r-md hover:bg-green-700 transition duration-300">Subscribe</button>
+        </form>
+        <div class="flex space-x-4 mt-4">
+          <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+            <i class="fa-solid fa-at"></i>
+          </a>
+          <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+            <i class="fa fa-globe"></i>
+          </a>
+          <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+            <i class="fab fa-discord"></i>
+          </a>
+        </div>
+        <p class="mt-4 text-center">© 2024 example LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- Scroll to top button -->
+  <button id="scrollToTop" class="hidden">Scroll to top</button>
+
+  <!-- GSAP Animation Script -->
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Scroll to top functionality
+    const scrollToTopButton = document.getElementById('scrollToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollToTopButton.classList.remove('hidden');
+      } else {
+        scrollToTopButton.classList.add('hidden');
+      }
+    });
+
+    scrollToTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>example.com</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/MotionPathPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EaselPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/PixiPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EasePack.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+  <style>
+    .menu-open {
+      transform: rotate(90deg);
+      transition: transform 0.3s ease;
+    }
+    .dropdown {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .dropdown-open {
+      max-height: 100px; /* Adjust based on your menu items */
+    }
+  </style>
+<style>
+        /* Style for scroll-to-top button */
+        #scrollToTop {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+
+
+
+
+
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300">
+
+  <!-- Navbar -->
+  <nav class="bg-white dark:bg-gray-800 shadow-lg">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center py-4 px-2">
+          <img src="Logo.webp" alt="Logo" class="h-8 w-8 mr-2">
+          <span class="font-semibold text-gray-500 dark:text-gray-300 text-lg">example.com</span>
+        </div>
+        <!-- Primary Navbar items -->
+        <div class="hidden md:flex justify-center flex-1 items-center space-x-4">
+          <a href="index.html" class="py-4 px-2 text-gray-500 dark:text-gray-300 border-b-4 border-green-500 font-semibold">
+            <i class="fas fa-home mr-1"></i> Home
+          </a>
+          <a href="about.html" class="py-4 px-2 text-gray-500 dark:text-gray-300 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-concierge-bell mr-1"></i> About
+          </a>
+          <a href="blog.html" class="py-4 px-2 text-gray-500 dark:text-gray-300 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-info-circle mr-1"></i> Blog
+          </a>
+          <a href="#" class="py-4 px-2 text-gray-500 dark:text-gray-300 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-shop mr-1"></i> Shop 
+          </a>
+          <a href="services.html" class="py-4 px-2 text-gray-500 dark:text-gray-300 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-gear mr-1"></i> Services
+          </a>
+          <a href="contact.html" class="py-4 px-2 text-gray-500 dark:text-gray-300 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-envelope mr-1"></i> Contact
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-3">
+          <input type="text" placeholder="Search..." class="px-4 py-2 border rounded-md text-gray-700 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-700 transition duration-300">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <!-- Social Media Icons -->
+        <div class="hidden md:flex space-x-3 ml-3 items-center">
+        <a href="https://google.com"> <img src="icons8-bell.gif" alt=""></a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button class="outline-none mobile-menu-button">
+            <svg class="w-6 h-6 text-gray-500 dark:text-gray-300 hover:text-green-500 transition duration-300" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div class="hidden mobile-menu">
+      <ul class="bg-white dark:bg-gray-800">
+        <li>
+          <a href="#" class="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">
+            <i class="fas fa-home mr-1"></i> Home
+          </a>
+        </li>
+        <li>
+          <div class="relative">
+          </div>
+        </li>
+        <li><a href="blog.html" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+        <i class="fas fa-concierge-bell mr-1"></i> About
+      </a></li>
+        <li><a href="blog.html" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+          <i class="fas fa-info-circle mr-1"></i> Blog
+        </a></li>
+        <li><a href="#" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+          <i class="fas fa-shop mr-1"></i> Shop
+        </a></li>
+        <li><a href="#" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+          <i class="fas fa-gear mr-1"></i> Services
+        </a></li>
+        <li><a href="contact.html" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+          <i class="fas fa-envelope mr-1"></i> Contact
+        </a></li>
+        <li class="px-2 py-4">
+          <input type="text" placeholder="Search..." class="w-full px-2 py-2 border rounded-md text-gray-700 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button class="w-full px-4 py-2 mt-2 bg-green-500 text-white rounded-md hover:bg-green-700 transition duration-300">
+            <i class="fas fa-search"></i>
+          </button>
+        </li>
+        <!-- Social Media Icons -->
+        <li class="flex justify-center space-x-3 py-4">
+          <a href="#" class="text-gray-500 dark:text-gray-300 hover:text-green-500 transition duration-300">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="text-gray-500 dark:text-gray-300 hover:text-green-500 transition duration-300">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="text-gray-500 dark:text-gray-300 hover:text-green-500 transition duration-300">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="text-gray-500 dark:text-gray-300 hover:text-green-500 transition duration-300">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <script>
+    const btn = document.querySelector("button.mobile-menu-button");
+    const menu = document.querySelector(".mobile-menu");
+    const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+      btn.querySelector("svg").classList.toggle("menu-open");
+    });
+
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener("click", () => {
+        const dropdown = toggle.nextElementSibling;
+        dropdown.classList.toggle("hidden");
+        dropdown.classList.toggle("dropdown-open");
+      });
+    });
+
+</script>
+
+  </script>
+
+  
+
+<!-- Horizontal Banner Section -->
+<section class="bg-gradient-to-r from-purple-500 to-green-500 py-4">
+  <div class="container mx-auto px-4 mt-0 flex flex-col md:flex-row items-center justify-center">
+    <div class="mb-6 md:mb-0 md:mr-6 fade-in">
+      <h1 class="text-2xl md:text-4xl font-bold">Banner</h1>
+      <p class="text-lg md:text-xl mt-2">its working xd</p>
+    </div>
+    <div class="scale-up">
+
+    </div>
+  </div>
+</section>
+
+
+
+
+  <div class="relative">
+    <img src="green miku.jpg" alt="Hatsune Miku" class="w-full h-screen object-cover mt-[-4rem]">
+    <div class="absolute inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+      <div class="text-center">
+        <h1 class="text-white text-6xl md:text-6xl lg:text-8xl font-bold">Website Under Construction</h1>
+        <div class="flex justify-center space-x-6 mt-4">
+          <a href="#" class="text-white hover:text-green-500 transition duration-300">
+            <i class="fab fa-mailbox-f text-3xl"></i>
+          </a>
+          <a href="mailto:johndoe@fakeemail.com" class="text-white hover:text-green-500 transition duration-300">
+            <i class="fa-solid fa-at text-3xl"> </a></i>
+          </a>
+          <a href="https://x.com/PapkuWorld" class="text-white hover:text-green-500 transition duration-300">
+            <i class="fab fa-twitter text-3xl"></i>
+          </a>
+          <a href="https://element.io/" class="text-white hover:text-green-500 transition duration-300">
+            <i class="fa-solid fa-globe text-3xl"></i>
+          </a>
+          <a href="https://discord.gg/j3N5PYYsBk" class="text-white hover:text-green-500 transition duration-300">
+            <i class="fa-brands fa-discord text-3xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Horizontal Banner Section -->
+<section class="bg-gradient-to-r from-purple-500 to-green-500 py-4">
+  <div class="container mx-auto px-4 mt-0 flex flex-col md:flex-row items-center justify-center">
+    <div class="mb-6 md:mb-0 md:mr-6 fade-in">
+      <h1 class="text-2xl md:text-4xl font-bold">Banner</h1>
+      <p class="text-lg md:text-xl mt-2">its working xd</p>
+    </div>
+    <div class="scale-up">
+
+    </div>
+  </div>
+</section>
+
+ <!-- Footer -->
+<footer class="bg-gray-900 text-gray-300 py-8 mt-8 dark:bg-gray-800 dark:text-gray-300">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- Company Information -->
+      <div class="flex flex-col items-center md:items-start">
+        <img src="Logo.webp" alt="Logo" class="h-8 w-8 mb-2">
+        <span class="font-semibold text-lg">example.com</span>
+        <p class="mt-2 text-center md:text-left">We are a powerful hacker group.</p>
+      </div>
+      <!-- Navigation Links -->
+      <div class="flex flex-col items-center">
+        <a href="index.html" class="text-gray-300 hover:text-white transition duration-300">Home</a>
+        <a href="about.html" class="text-gray-300 hover:text-white transition duration-300">Site Map</a>
+        <a href="blog.html" class="text-gray-300 hover:text-white transition duration-300">Privacy Policy</a>
+        <a href="#" class="text-gray-300 hover:text-white transition duration-300">Terms of Service</a>
+        <a href="#" class="text-gray-300 hover:text-white transition duration-300">Subscribe</a>
+        <a href="contact.html" class="text-gray-300 hover:text-white transition duration-300">Contact</a>
+      </div>
+      <!-- Subscription Section -->
+      <div class="flex flex-col items-center">
+        <h3 class="font-semibold mb-2">Subscribe to Our Newsletter</h3>
+        <form class="flex">
+          <input type="email" placeholder="Your Email" class="px-3 py-2 border border-gray-600 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+          <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded-r-md hover:bg-green-700 transition duration-300">Subscribe</button>
+        </form>
+        <div class="flex space-x-4 mt-4">
+          <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+            <i class="fa-solid fa-at"></i>
+          </a>
+          <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+            <i class="fa fa-globe"></i>
+          </a>
+          <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+            <i class="fab fa-discord"></i>
+          </a>
+        </div>
+        <p class="mt-4 text-center">© 2024 example LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<button id="scrollToTop">Scroll to Top</button>
+
+<script src="script.js"></script>
+
+</body>
+</html>

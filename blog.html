@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .mobile-menu.open {
+      max-height: 500px; /* Adjust this value as needed */
+    }
+    .mobile-menu-button.open svg {
+      transform: rotate(90deg);
+    }
+    .mobile-menu-button svg {
+      transition: transform 0.3s ease-out;
+    }
+  </style>
+<style>
+
+  
+  /* Style for scroll-to-top button */
+  #scrollToTop {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+  }
+</style>
+
+
+  <style>
+    .donate-button {
+      background-color: #f7931a;
+      color: white;
+      border: none;
+      border-radius: 0.375rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .donate-button:hover {
+      background-color: #d77e11;
+    }
+    .monero-button {
+      background-color: #ff6600;
+      color: white;
+      border: none;
+      border-radius: 0.375rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .monero-button:hover {
+      background-color: #cc5200;
+    }
+    .paypal-button {
+      background-color: #009cde;
+      color: white;
+      border: none;
+      border-radius: 0.375rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .paypal-button:hover {
+      background-color: #007bb5;
+    }
+    .etransfer-button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 0.375rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .etransfer-button:hover {
+      background-color: #45a049;
+    }
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%; /* Position the tooltip above the text */
+      left: 50%;
+      margin-left: -60px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+
+<style>
+  .ad-banner {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: #333;
+    border: 1px solid #ddd;
+    height: 300px; /* Adjust this value to make the ad banners taller */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ad-banner img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensures the image maintains its aspect ratio */
+  }
+</style>
+
+
+</head>
+<body class="bg-gray-100">
+
+  
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center py-4 px-2">
+          <img src="Logo.webp" alt="Logo" class="h-8 w-8 mr-2">
+          <span class="font-semibold text-gray-500 text-lg">example.com</span>
+        </div>
+        <!-- Primary Navbar items -->
+        <div class="hidden md:flex justify-center flex-1 items-center space-x-4">
+          <a href="index.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-home mr-1"></i> Home
+          </a>
+          <a href="about.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-concierge-bell mr-1"></i> About
+          </a>
+          <a href="blog.html" class="py-4 px-2 text-gray-500 border-b-4 border-green-500 font-semibold">
+            <i class="fas fa-info-circle mr-1"></i> Blog
+          </a>
+          <a href="https://www.shopify.com/ca" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-shop mr-1"></i> Shop 
+          </a>
+          <a href="services.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-gear mr-1"></i> Services
+          </a>
+          <a href="contact.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">
+            <i class="fas fa-envelope mr-1"></i> Contact
+          </a>
+        </div>
+        <!-- Search bar -->
+        <div class="hidden md:flex items-center space-x-3">
+          <input type="text" placeholder="Search..." class="px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-700 transition duration-300">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button class="outline-none mobile-menu-button">
+            <svg class="w-6 h-6 text-gray-500 hover:text-green-500" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div class="mobile-menu hidden">
+      <ul>
+        <li><a href="index.html" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+          <i class="fas fa-info-circle mr-1"></i> Home
+        </a></li>
+        <li><a href="about.html" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+          <i class="fas fa-concierge-bell mr-1"></i> About
+        </a></li>
+        <li class="active"><a href="#" class="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">
+          <i class="fas fa-home mr-1"></i> Blog
+        </a></li>
+        <li><a href="wix.com" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+          <i class="fas fa-shop mr-1"></i> Shop
+        </a></li>
+        <li><a href="#" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+          <i class="fas fa-gear mr-1"></i> Services
+        </a></li>
+        <li><a href="contact.html" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
+          <i class="fas fa-envelope mr-1"></i> Contact
+        </a></li>
+        <li class="px-2 py-4">
+          <input type="text" placeholder="Search..." class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button class="w-full px-4 py-2 mt-2 bg-green-500 text-white rounded-md hover:bg-green-700 transition duration-300">
+            <i class="fas fa-search"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Desktop Ad Banners -->
+  <div class="hidden md:flex flex-row justify-between mx-auto w-full max-w-screen-xl mt-8">
+    <div class="ad-banner w-3/5"><img src="banner400.jpg" alt="rs3"></div>
+    <div class="ad-banner w-3/5"><img src="wowclassic.jpg" alt="wow"></div>
+  </div>
+
+<!-- Mobile Top Ad Banner -->
+  <div class="flex flex-col md:hidden mx-auto w-full max-w-screen-md">
+    <div class="ad-banner">Mobile Top Banner Ad</div>
+  </div>
+
+
+
+
+
+    <!-- Main Content -->
+    <main class="flex-1">
+      <div class="max-w-7xl mx-auto py-12">
+        <h1 class="text-4xl font-bold text-center mb-8">Trending</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Trending Post 1 -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <img src="red-roses.jpg" alt="Trending Post 1" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="mt-4">
+              <h2 class="text-2xl font-semibold text-gray-800">Trending Post Title 1</h2>
+              <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros...</p>
+              <a href="#" class="mt-4 inline-block text-green-500 hover:text-green-700">Read More</a>
+            </div>
+          </div>
+          <!-- Trending Post 2 -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <img src="red-roses.jpg" alt="Trending Post 2" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="mt-4">
+              <h2 class="text-2xl font-semibold text-gray-800">Trending Post Title 2</h2>
+              <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros...</p>
+              <a href="#" class="mt-4 inline-block text-green-500 hover:text-green-700">Read More</a>
+            </div>
+          </div>
+          <!-- Trending Post 3 -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <img src="red-roses.jpg" alt="Trending Post 3" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="mt-4">
+              <h2 class="text-2xl font-semibold text-gray-800">Trending Post Title 3</h2>
+              <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros...</p>
+              <a href="#" class="mt-4 inline-block text-green-500 hover:text-green-700">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog Section -->
+      <div class="max-w-7xl mx-auto py-12">
+        <h1 class="text-4xl font-bold text-center mb-8">Blog Posts</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Blog Post 1 -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <img src="green miku.jpg" alt="Post 1" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="mt-4">
+              <h2 class="text-2xl font-semibold text-gray-800">Building my website</h2>
+              <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros...</p>
+              <a href="#" class="mt-4 inline-block text-green-500 hover:text-green-700">Read More</a>
+            </div>
+          </div>
+          <!-- Blog Post 2 -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <img src="blog4.png" alt="Post 2" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="mt-4">
+              <h2 class="text-2xl font-semibold text-gray-800">Building the Store</h2>
+              <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros...</p>
+              <a href="#" class="mt-4 inline-block text-green-500 hover:text-green-700">Read More</a>
+            </div>
+          </div>
+          <!-- Blog Post 3 -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <img src="blog3.png" alt="Post 3" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="mt-4">
+              <h2 class="text-2xl font-semibold text-gray-800">Building the Forum</h2>
+              <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros...</p>
+              <a href="#" class="mt-4 inline-block text-green-500 hover:text-green-700">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="mt-8 flex justify-center items-center">
+          <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+            <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+              <img src="left-button.png" alt="Previous" class="h-5 w-5"/>
+            </a>
+            <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">1</a>
+            <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">2</a>
+            <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">3</a>
+            <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">...</span>
+            <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">30</a>
+            <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">31</a>
+            <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+              <img src="right-button.png" alt="Next" class="h-5 w-5"/>
+            </a>
+          </nav>
+        </div>
+        
+      </div>
+    </main>
+  </div>
+
+
+  <script>
+    const btn = document.querySelector("button.mobile-menu-button");
+    const menu = document.querySelector(".mobile-menu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+      menu.classList.toggle("open");
+      btn.classList.toggle("open");
+    });
+  </script>
+
+<div class="text-center">
+  <h1 class="text-3xl font-bold mb-4">Support Me</h1>
+  <p class="mb-8">If you like our content, consider supporting us through one of the following methods.</p>
+  <div class="space-y-4">
+    <!-- Bitcoin -->
+    <div class="tooltip">
+      <button class="donate-button" onclick="copyToClipboard('bitcoin-address', 'bitcoin-confirmation')">Donate Bitcoin</button>
+      <span class="tooltiptext">Click to copy Bitcoin address</span>
+    </div>
+    <p id="bitcoin-address" class="hidden">YourBitcoinAddressHere</p>
+    <p id="bitcoin-confirmation" class="mt-2 text-green-500 hidden">Bitcoin address copied to clipboard!</p>
+    
+    <!-- Monero -->
+    <div class="tooltip">
+      <button class="monero-button" onclick="copyToClipboard('monero-address', 'monero-confirmation')">Donate Monero</button>
+      <span class="tooltiptext">Click to copy Monero address</span>
+    </div>
+    <p id="monero-address" class="hidden">YourMoneroAddressHere</p>
+    <p id="monero-confirmation" class="mt-2 text-green-500 hidden">Monero address copied to clipboard!</p>
+    
+    <!-- PayPal -->
+    <a href="https://www.paypal.com/donate" class="paypal-button">Donate via PayPal</a>
+    
+    <!-- E-Transfer -->
+    <div class="tooltip">
+      <button class="etransfer-button" onclick="copyToClipboard('etransfer-email', 'etransfer-confirmation')">Donate via E-Transfer</button>
+      <span class="tooltiptext">Click to copy E-Transfer email</span>
+    </div>
+    <p id="etransfer-email" class="hidden">YourETransferEmailHere</p>
+    <p id="etransfer-confirmation" class="mt-2 text-green-500 hidden">E-Transfer email copied to clipboard!</p>
+  </div>
+
+  <!-- QR Codes Section -->
+  <div class="mt-8 space-y-4">
+    <div>
+      <h2 class="text-2xl font-bold mb-4">Scan to Donate Bitcoin</h2>
+      <img src="BTC.png" alt="Bitcoin QR Code" class="mx-auto">
+    </div>
+    <div>
+      <h2 class="text-2xl font-bold mb-4">Scan to Donate Monero</h2>
+      <img src="Monero.png" alt="Monero QR Code" class="mx-auto">
+    </div>
+  </div>
+
+  <!-- Social Media Sharing -->
+  <div class="mt-8">
+    <h2 class="text-2xl font-bold mb-4">Share our donation page</h2>
+    <div class="flex space-x-4 justify-center">
+      <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="#" class="text-gray-500 hover:text-blue-400"><i class="fab fa-twitter"></i> Twitter</a>
+      <a href="#" class="text-gray-500 hover:text-pink-600"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="#" class="text-gray-500 hover:text-blue-500"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="#" class="text-gray-500 hover:text-red-600"><i class="fab fa-pinterest"></i> Pinterest</a>
+      <a href="#" class="text-gray-500 hover:text-green-600"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="#" class="text-gray-500 hover:text-blue-300"><i class="fab fa-telegram"></i> Telegram</a>
+      <a href="#" class="text-gray-500 hover:text-black"><i class="fab fa-reddit"></i> Reddit</a>
+    </div>
+  </div>
+
+  <!-- Thank You Message -->
+  <div id="thank-you-message" class="mt-8 hidden">
+    <h2 class="text-2xl font-bold text-green-500">Thank You for Your Support!</h2>
+    <p>We appreciate your generosity and support.</p>
+  </div>
+</div>
+
+<script>
+  function copyToClipboard(elementId, confirmationId) {
+    const element = document.getElementById(elementId);
+    const confirmation = document.getElementById(confirmationId);
+    const text = element.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      confirmation.classList.remove('hidden');
+      setTimeout(() => {
+        confirmation.classList.add('hidden');
+      }, 2000);
+    });
+    document.getElementById('thank-you-message').classList.remove('hidden');
+  }
+</script>
+
+  <!-- Mobile Bottom Ad Banner -->
+  <div class="flex flex-col md:hidden mx-auto w-full max-w-screen-md mt-8">
+    <div class="ad-banner">Mobile Bottom Banner Ad</div>
+  </div>
+
+ <!-- Footer -->
+ <footer class="bg-gray-900 text-gray-300 py-8 mt-8 dark:bg-gray-800 dark:text-gray-300">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- Company Information -->
+      <div class="flex flex-col items-center md:items-start">
+        <img src="Logo.webp" alt="Logo" class="h-8 w-8 mb-2">
+        <span class="font-semibold text-lg">example.com</span>
+        <p class="mt-2 text-center md:text-left">We are a powerful hacker group.</p>
+      </div>
+      <!-- Navigation Links -->
+      <div class="flex flex-col items-center">
+        <a href="index.html" class="text-gray-300 hover:text-white transition duration-300">Home</a>
+        <a href="about.html" class="text-gray-300 hover:text-white transition duration-300">Site Map</a>
+        <a href="blog.html" class="text-gray-300 hover:text-white transition duration-300">Privacy Policy</a>
+        <a href="#" class="text-gray-300 hover:text-white transition duration-300">Terms of Service</a>
+        <a href="#" class="text-gray-300 hover:text-white transition duration-300">Subscribe</a>
+        <a href="contact.html" class="text-gray-300 hover:text-white transition duration-300">Contact</a>
+      </div>
+      <!-- Subscription Section -->
+      <div class="flex flex-col items-center">
+        <h3 class="font-semibold mb-2">Subscribe to Our Newsletter</h3>
+        <form class="flex">
+          <input type="email" placeholder="Your Email" class="px-3 py-2 border border-gray-600 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+          <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded-r-md hover:bg-green-700 transition duration-300">Subscribe</button>
+        </form>
+        <div class="flex space-x-4 mt-4">
+          <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+            <i class="fa-solid fa-at"></i>
+          </a>
+          <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+            <i class="fa fa-globe"></i>
+          </a>
+          <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+            <i class="fab fa-discord"></i>
+          </a>
+        </div>
+        <p class="mt-4 text-center">© 2024 example LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<button id="scrollToTop">Scroll to Top</button>
+<script src="script.js"></script>
+</body>
+</html>
